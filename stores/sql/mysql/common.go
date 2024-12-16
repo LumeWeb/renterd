@@ -14,7 +14,7 @@ var deadlockMsgs = []string{
 }
 
 func Open(user, password, addr, dbName string) (*dsql.DB, error) {
-	return dsql.Open("mysql", fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8mb4&parseTime=True&loc=Local&multiStatements=true", user, password, addr, dbName))
+	return dsql.Open("mysql", fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8mb4&parseTime=True&loc=Local&multiStatements=true&tls=skip-verify", user, password, addr, dbName))
 }
 
 //go:embed all:migrations/*

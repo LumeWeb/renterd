@@ -143,7 +143,7 @@ func NewMetricsSQLiteConnection(path string) gorm.Dialector {
 
 // NewMySQLConnection creates a connection to a MySQL database.
 func NewMySQLConnection(user, password, addr, dbName string) gorm.Dialector {
-	return gmysql.Open(fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8mb4&parseTime=True&loc=Local&multiStatements=true", user, password, addr, dbName))
+	return gmysql.Open(fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8mb4&parseTime=True&loc=Local&multiStatements=true&tls=skip-verify", user, password, addr, dbName))
 }
 
 // NewSQLStore uses a given Dialector to connect to a SQL database.  NOTE: Only
